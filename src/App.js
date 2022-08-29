@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {
   ChakraProvider,
   Box,
@@ -14,95 +15,71 @@ import {
   theme,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+// import { Logo } from './Logo';
+import Home from './pages/home'
+import About from './pages/about'
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Grid
-        border='2px'
-        borderColor='red'
-        w={['375px', null, null, '1290px']}
-        
-        h={['100%', null, null, '100vh']}
-        // w={['100%', null, null, '100vw']}
-        
-        m='auto'
-        
-        
-      >
-        <Grid 
+    <Router>
+      <ChakraProvider theme={theme}>
+        <Grid // background
           border='2px'
-          borderColor='blue.300'
-          h={[null, null, null, '518px']}
-          w={['375px', null, null, '1110px']}
-          templateRows={[null, null, null, 'repeat(2, 1fr)']}
-          templateColumns={[null, null, null, 'repeat(4, 1fr)']}
-          mx='auto'
-          my='auto'
-          px='auto'
-          gap='1.5rem'
+          borderColor='red'
+          w={['375px', null, null, '1290px']}
+          
+          h={['100%', null, null, '100vh']}
+          // w={['100%', null, null, '100vw']}
+          
+          m='auto'
+          
+          
         >
-          <GridItem
-            w={['327px', null, null, '255px']}
-            rowSpan={[1, null, null, 2]}
-            h={['203px', null, null, '518px' ]}
-            background='blue.100'
+          <Grid 
+            border='2px'
+            borderColor='blue.300'
+            h={[null, null, null, '518px']}
+            w={['375px', null, null, '1110px']}
+            templateRows={[null, null, null, 'repeat(2, 1fr)']}
+            templateColumns={[null, null, null, 'repeat(4, 1fr)']}
             mx='auto'
+            my='auto'
+            px='auto'
+            gap='1.5rem'
           >
-          </GridItem>
 
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
+          
+            <GridItem // HeaderCard
+              w={['327px', null, null, '255px']}
+              rowSpan={[1, null, null, 2]}
+              h={['203px', null, null, '518px' ]}
+              background='blue.100'
+              mx='auto'
+            >
+            </GridItem>
 
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
+            <GridItem 
+              w={['327px', null, null, '255px']}
+              h={['160px', null, null, '244px' ]}
+              border='1px'
+              mx='auto'
+            >
+            </GridItem>
 
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
+            <main>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/about' element={<About />} />
+              </Routes>
+            </main>
 
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
+            
+    
 
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
-
-          <GridItem
-            w={['327px', null, null, '255px']}
-            h={['160px', null, null, '244px' ]}
-            border='1px'
-            mx='auto'
-          >
-          </GridItem>
-
+          </Grid>
         </Grid>
-      </Grid>
-    </ChakraProvider>
+      </ChakraProvider>
+    </Router>
   );
 }
 
